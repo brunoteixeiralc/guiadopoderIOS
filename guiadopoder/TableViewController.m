@@ -18,6 +18,8 @@
 
 @implementation TableViewController
 
+@synthesize delegate;
+
 - (id)initWithStyle:(UITableViewStyle)style
 {
     self = [super initWithStyle:style];
@@ -34,9 +36,10 @@
     self.view.backgroundColor = [UIColor whiteColor];
     self.tableView.backgroundColor = [UIColor whiteColor];
     self.tableView.separatorColor = [UIColor colorWithWhite:0.15f alpha:0.2f];
-    
-    _menuItems = @[@"poderes",@"executivo", @"legislativo", @"judiciario", @"estadual"];}
+  
+    _menuItems = @[@"poderes",@"executivo", @"legislativo", @"judiciario", @"estadual", @"empty" ,@"filtro"];
 
+}
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
@@ -64,6 +67,11 @@
     return cell;
 }
 
+-(void)tableView:(UITableView *)tableView didDeselectRowAtIndexPath:(NSIndexPath *)indexPath{
+
+
+}
+
 
 #pragma mark - Navigation
 
@@ -86,10 +94,12 @@
         
         destViewController.title = @"Poder Judiciário";
         
-    }else{
+    }else if([segue.identifier isEqualToString:@"showEstadual"]){
         
         destViewController.title = @"Poder Estadual";
         
+    }else{
+        destViewController.title = @"Buscar por nome";
     }
     
     if ( [segue isKindOfClass: [SWRevealViewControllerSegue class]] ) {

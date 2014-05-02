@@ -7,7 +7,17 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "Area.h"
+
+@protocol CustomerDelegate <NSObject>
+
+-(void) didSelectCustomer:(NSInteger *) customer;
+
+@end
 
 @interface TableViewController : UITableViewController
+
+
+@property (nonatomic,retain) id<CustomerDelegate> delegate;
 
 @end

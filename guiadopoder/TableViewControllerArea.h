@@ -10,10 +10,12 @@
 
 @interface TableViewControllerArea : UIViewController<UITableViewDelegate,UITableViewDataSource>
 
+@property(nonatomic, strong) IBOutlet UITableView *areaTableView;
+@property(nonatomic, strong) IBOutlet UISearchBar *searchBar;
+
 @property(nonatomic,retain) NSMutableArray *areas;
-
-@property (nonatomic, strong) IBOutlet UITableView *areaTableView;
-
+@property(strong, nonatomic) NSMutableArray* filteredTableData;
+@property(nonatomic, assign) bool isFiltered;
 
 
 @end

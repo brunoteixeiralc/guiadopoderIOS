@@ -11,14 +11,16 @@
 
 @interface TableViewControllerCargo : UIViewController<UITableViewDataSource,UITableViewDelegate>
 
-@property(nonatomic,retain) NSMutableArray *cargos;
-
-@property(nonatomic,retain) Area *areaSelecionada;
-
 @property(nonatomic,retain) IBOutlet UILabel *endereco;
 @property(nonatomic,retain) IBOutlet UILabel *telefone;
 @property(nonatomic,retain) IBOutlet UILabel *site;
+@property(nonatomic, retain) IBOutlet UITableView *cargoTableView;
+@property(nonatomic, retain) IBOutlet UISearchBar *searchBar;
 
-@property (nonatomic, strong) IBOutlet UITableView *cargoTableView;
+@property(strong, nonatomic) NSMutableArray* filteredTableData;
+@property(nonatomic, assign) bool isFiltered;
+@property(nonatomic,nonatomic) NSMutableArray *cargos;
+
+@property(nonatomic,retain) Area *areaSelecionada;
 
 @end
