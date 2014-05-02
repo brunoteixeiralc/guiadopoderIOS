@@ -15,6 +15,6 @@
 @property(nonatomic,strong) NSString *email;
 @property(nonatomic,strong) NSString *fax;
 @property(nonatomic,strong) NSMutableArray *telefones;
-
+@property(nonatomic,strong) NSString *poder;
 
 @end
