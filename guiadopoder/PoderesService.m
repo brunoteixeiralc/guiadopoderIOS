@@ -156,7 +156,7 @@
     [area setNome:@"Presidência da República"];
     [area setEndereco:@"Palácio do Planalto - Praça dos Três Poderes - 70.150-900 Brasília/DF"];
     [area setEndWeb:@"http://www.planalto.gov.br"];
-    [area setTelefone:@"(61) 3411-1221"];
+    [area setTelefone:@"(61)3411-1221"];
     
     Cargo *cargo = [[Cargo alloc]init];
     [cargo setCargo:@"Presidenta"];
@@ -193,7 +193,7 @@
     [area1 setNome:@"Vice Presidência da República"];
     [area1 setEndereco:@"Palácio do Planalto, Anexo II, Térreo 70.083-900 Brasília/DF"];
     [area1 setEndWeb:@"http://www.planalto.gov.br"];
-    [area1 setTelefone:@"(61) 3411-1221"];
+    [area1 setTelefone:@"(61)3411-1221"];
     
     Cargo *cargo4 = [[Cargo alloc]init];
     [cargo4 setCargo:@"Vice-Presidente"];
@@ -213,7 +213,7 @@
     [area2 setNome:@"Casa Civil da Presidência da República"];
     [area2 setEndereco:@"Palácio do Planalto, 4 andar, Térreo 70.150-900 Brasília/DF"];
     [area2 setEndWeb:@"http://www.planalto.gov.br"];
-    [area2 setTelefone:@"(61) 3411-1221"];
+    [area2 setTelefone:@"(61)3411-1221"];
     
     Cargo *cargo7 = [[Cargo alloc]init];
     [cargo7 setCargo:@"Ministra de Estado"];
@@ -244,7 +244,7 @@
     [area setNome:@"Tribunal de Contas da União - TCU"];
     [area setEndereco:@"SAFS Quadra 4, Lote 1, Edfício Sede, 70.042-900 Brasília/DF"];
     [area setEndWeb:@"http://www.tcu.jus.br"];
-    [area setTelefone:@"(61) 3316-7222"];
+    [area setTelefone:@"(61)3316-7222"];
     
     Cargo *cargo1 = [[Cargo alloc]init];
     [cargo1 setCargo:@"Presidente"];
@@ -273,7 +273,7 @@
     [area1 setNome:@"Supremo Tribunal Federal - STF"];
     [area1 setEndereco:@"Praça dos Três Poderes, 70.175-900 Brasília/DF"];
     [area1 setEndWeb:@"http://www.stf.jus.br"];
-    [area1 setTelefone:@"(61) 3217-3000"];
+    [area1 setTelefone:@"(61)3217-3000"];
     
     Cargo *cargo4 = [[Cargo alloc]init];
     [cargo4 setCargo:@"Presidente"];
@@ -301,16 +301,16 @@
     [area2 setNome:@"Superior Tribunal da Justiça - STJ"];
     [area2 setEndereco:@"SAFS Quadra 6, Lote 1, Trecho III, 70.095-900 Brasília/DF"];
     [area2 setEndWeb:@"http://www.stf.jus.br"];
-    [area2 setTelefone:@"(61) 3319-8000"];
+    [area2 setTelefone:@"(61)3319-8000"];
     
     Cargo *cargo7 = [[Cargo alloc]init];
-    [cargo4 setCargo:@"Presidente"];
+    [cargo7 setCargo:@"Presidente"];
     
     Cargo *cargo8 = [[Cargo alloc]init];
-    [cargo5 setCargo:@"Vice-Presidente"];
+    [cargo8 setCargo:@"Vice-Presidente"];
     
     Cargo *cargo9 = [[Cargo alloc]init];
-    [cargo6 setCargo:@"Ministro"];
+    [cargo9 setCargo:@"Ministro"];
     
     NSMutableArray *cargos2 = [[NSMutableArray alloc]init];
     [cargos2 addObject:cargo7];
@@ -339,7 +339,7 @@
     [area setNome:@"Congresso Nacional"];
     [area setEndereco:@"Palácio do Congresso Nacional, Edifício Principal, Praça dos Três Poderes- 70.160-900 Brasília/DF"];
     [area setEndWeb:@"http://www.senado.gov.br"];
-    [area setTelefone:@"(61) 3303-4141"];
+    [area setTelefone:@"(61)3303-4141"];
     
     Cargo *cargo1 = [[Cargo alloc]init];
     [cargo1 setCargo:@"Presidente"];
@@ -368,7 +368,7 @@
     [area1 setNome:@"Senado Federal"];
     [area1 setEndereco:@"Palácio do Congresso Nacional, Edifício Principal, Praça dos Três Poderes- 70.165-900 Brasília/DF"];
     [area1 setEndWeb:@"http://www.senado.gov.br"];
-    [area1 setTelefone:@"(61) 3303-4141"];
+    [area1 setTelefone:@"(61)3303-4141"];
     
     Cargo *cargo4 = [[Cargo alloc]init];
     [cargo4 setCargo:@"Presidente"];
@@ -396,7 +396,7 @@
     [area2 setNome:@"Câmara dos Deputados"];
     [area2 setEndereco:@"Palácio do Congresso Nacional, Edifício Principal, Praça dos Três Poderes- 70.165-900 Brasília/DF"];
     [area2 setEndWeb:@"http://www.senado.gov.br"];
-    [area2 setTelefone:@"(61) 3216-0000"];
+    [area2 setTelefone:@"(61)3216-0000"];
     
     Cargo *cargo7 = [[Cargo alloc]init];
     [cargo4 setCargo:@"Presidente"];
@@ -421,6 +421,66 @@
     [areas addObject:area2];
     
     return areas;
+}
+
++(NSMutableArray *)getFuncionarios{
+    
+    NSMutableArray *funcionarios = [[NSMutableArray alloc] init];
+    
+    Funcionario *funcionario = [[Funcionario alloc]init];
+    [funcionario setNome:@"Vera Zaverucha"];
+    [funcionario setAniversario:@"19/08"];
+    [funcionario setEmail:@"vera.zaverucha@ancine.gov.br"];
+    [funcionario setFax:@"(21)3037-6095"];
+    [funcionario setPoder:@"Poder Executivo"];
+    
+    NSMutableArray *telefones = [[NSMutableArray alloc]init];
+    [telefones addObject:@"(21)3037-6330"];
+    [funcionario setTelefones:telefones];
+    
+    Funcionario *funcionario2 = [[Funcionario alloc]init];
+    [funcionario2 setNome:@"Cristovam Buarque"];
+    [funcionario2 setAniversario:@"20/02"];
+    [funcionario2 setEmail:@"cristovam@senador.gov.br"];
+    [funcionario2 setFax:@"(61)3303-2874"];
+    [funcionario2 setPoder:@"Poder Legislativo"];
+    
+    NSMutableArray *telefones2 = [[NSMutableArray alloc]init];
+    [telefones2 addObject:@"(61)3303-2281"];
+    [funcionario2 setTelefones:telefones2];
+    
+    Funcionario *funcionario3 = [[Funcionario alloc]init];
+    [funcionario3 setNome:@"Ministro Carlos Ayres Britto"];
+    [funcionario3 setAniversario:@"18/11"];
+    [funcionario3 setEmail:@"sergio.mendes@stf.jus.br"];
+    [funcionario3 setFax:@"(61)3411-2222"];
+    [funcionario3 setPoder:@"Poder Judiciário"];
+    
+    NSMutableArray *telefones3 = [[NSMutableArray alloc]init];
+    [telefones3 addObject:@"(61)3217-4311"];
+    [telefones3 addObject:@"(61)3217-4312"];
+    
+    [funcionario3 setTelefones:telefones3];
+    
+    Funcionario *funcionario4 = [[Funcionario alloc]init];
+    [funcionario4 setNome:@"Pedro Marcos Lopes"];
+    [funcionario4 setAniversario:@"13/09"];
+    [funcionario4 setEmail:@"pedrolopes.df@governo.se.gov.br"];
+    [funcionario4 setFax:@"(61)3325-2556"];
+    [funcionario4 setPoder:@"Poder Estadual"];
+    
+    NSMutableArray *telefones4 = [[NSMutableArray alloc]init];
+    [telefones4 addObject:@"(61)3424-9400"];
+    [telefones4 addObject:@"(61)3424-9404"];
+    
+    [funcionario4 setTelefones:telefones4];
+    
+    [funcionarios addObject:funcionario];
+    [funcionarios addObject:funcionario2];
+    [funcionarios addObject:funcionario3];
+    [funcionarios addObject:funcionario4];
+    
+    return funcionarios;
 }
 
 @end

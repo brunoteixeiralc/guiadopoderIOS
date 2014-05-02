@@ -18,4 +18,6 @@
 
 + (NSMutableArray *) getEstadual;
 
++ (NSMutableArray *) getFuncionarios;
+
 @end
