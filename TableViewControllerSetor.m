@@ -1,29 +1,28 @@
 //
-//  TableViewControllerFilterName.m
+//  TableViewControllerSetor.m
 //  guiadopoder
 //
-//  Created by Bruno Corrêa on 30/04/14.
+//  Created by Bruno Corrêa on 26/05/14.
 //  Copyright (c) 2014 Bruno. All rights reserved.
 //
 
-#import "TableViewControllerFilterName.h"
-#import "PoderesService.h"
+#import "TableViewControllerSetor.h"
 #import "SWRevealViewController.h"
 #import "CustomCell.h"
-#import "Funcionario.h"
-#import "ViewControllerFuncionario.h"
-#import "SingletonFuncionarios.h"
+#import "Setor.h"
+#import "TableViewControllerOrgao.h"
+#import "SingletonPoder.h"
+#import "Poder.h"
 
-@interface TableViewControllerFilterName ()
+@interface TableViewControllerSetor ()
 
-@property (nonatomic,retain) Funcionario *funcionarioSelecionado;
+@property (nonatomic,retain) Setor  *setorSelecionada;
 
 @end
 
-@implementation TableViewControllerFilterName
+@implementation TableViewControllerSetor
 
-@synthesize funcionarios,filterNameTableView,searchBar,filteredTableData,isFiltered;
-
+@synthesize setores,setorTableView,searchBar,filteredTableData,isFiltered;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -38,23 +37,21 @@
 {
     [super viewDidLoad];
     
-    filterNameTableView.delegate = self;
-    filterNameTableView.dataSource = self;
+    setorTableView.delegate = self;
+    setorTableView.dataSource = self;
     searchBar.delegate = (id)self;
     
-     SingletonFuncionarios *singletonFuncionarios = [SingletonFuncionarios sharedManager];
+    self.setores = [self validarPoder];
     
-    self.funcionarios = [singletonFuncionarios funcionarioArray];
-
     UIBarButtonItem *mainMenuButton = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"menu.png"] style:UIBarButtonItemStyleBordered target:self.revealViewController action:@selector(revealToggle:)];
-        self.navigationItem.leftBarButtonItem = mainMenuButton;
-        self.navigationItem.leftBarButtonItem.tintColor = [UIColor colorWithRed:41.0/255.0 green:128.0/255.0 blue:185.0/255.0 alpha:1];
-        
-        self.navigationController.navigationBar.titleTextAttributes = @{NSForegroundColorAttributeName : [UIColor colorWithRed:41.0/255.0 green:128.0/255.0 blue:185.0/255.0 alpha:1]};
-        
-        // Set the gesture
-        [self.view addGestureRecognizer:self.revealViewController.panGestureRecognizer];
-  
+    self.navigationItem.leftBarButtonItem = mainMenuButton;
+    self.navigationItem.leftBarButtonItem.tintColor = [UIColor colorWithRed:41.0/255.0 green:128.0/255.0 blue:185.0/255.0 alpha:1];
+    
+    self.navigationController.navigationBar.titleTextAttributes = @{NSForegroundColorAttributeName : [UIColor colorWithRed:41.0/255.0 green:128.0/255.0 blue:185.0/255.0 alpha:1]};
+    
+    // Set the gesture
+    [self.view addGestureRecognizer:self.revealViewController.panGestureRecognizer];
+    
 }
 
 - (void)didReceiveMemoryWarning
@@ -74,7 +71,7 @@
     if(isFiltered)
         rowCount = filteredTableData.count;
     else
-        rowCount = funcionarios.count;
+        rowCount = setores.count;
     
     return rowCount;
 }
@@ -83,33 +80,33 @@
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     
     static NSString *CellIdentifier = @"CustomCell";
-    CustomCell *cell = (CustomCell*)[self.filterNameTableView dequeueReusableCellWithIdentifier:CellIdentifier];
+    CustomCell *cell = (CustomCell*)[self.setorTableView dequeueReusableCellWithIdentifier:CellIdentifier];
     if(cell == nil){
         cell = [[[NSBundle mainBundle]loadNibNamed:@"CustomCell" owner:self options:nil]objectAtIndex:0];
     }
     
     NSInteger linha = indexPath.row;
     
-    Funcionario *funcionario;
+    Setor *setor;
     
     if(isFiltered)
-        funcionario = [filteredTableData objectAtIndex:linha];
+        setor = [filteredTableData objectAtIndex:linha];
     else
-        funcionario = [funcionarios objectAtIndex:linha];
+        setor = [setores objectAtIndex:linha];
     
-    cell.nome.text = funcionario.nome;
+    cell.nome.text = setor.nome;
     
-    if([funcionario.poder isEqual: @"Executivo"]){
+    if([setor.poder isEqual: @"Executivo"]){
         
         cell.lineColor.backgroundColor = [UIColor colorWithRed:241.0/255.0 green:196.0/255.0 blue:15.0/255.0 alpha:1];
         
-    }else if([funcionario.poder isEqual: @"Estadual"]){
+    }else if([setor.poder isEqual: @"Estadual"]){
         
         cell.lineColor.backgroundColor = [UIColor colorWithRed:52.0/255.0 green:152.0/255.0 blue:219.0/255.0 alpha:1];
         
-    }else if([funcionario.poder isEqual: @"Legislativo"]){
+    }else if([setor.poder isEqual: @"Legislativo"]){
         
-        cell.lineColor.backgroundColor = [UIColor colorWithRed:22.0/255.0 green:160.0/255.0 blue:133.0/255.0 alpha:1];
+        cell.lineColor.backgroundColor =  [UIColor colorWithRed:22.0/255.0 green:160.0/255.0 blue:133.0/255.0 alpha:1];
         
     }else{
         
@@ -124,9 +121,9 @@
     
     NSInteger linha = indexPath.row;
     
-    self.funcionarioSelecionado = [funcionarios objectAtIndex:linha];
+    self.setorSelecionada = [setores objectAtIndex:linha];
     
-    [self performSegueWithIdentifier:@"segueToFuncionario" sender:self];
+    [self performSegueWithIdentifier:@"segueToOrgao" sender:self];
     
 }
 
@@ -137,13 +134,10 @@
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
     UINavigationController *destViewController = (UINavigationController*)segue.destinationViewController;
-    destViewController.title = self.funcionarioSelecionado.nome;
+    destViewController.title = self.setorSelecionada.nome;
     
-    ViewControllerFuncionario *viewFuncionarios = segue.destinationViewController;
-    viewFuncionarios.funcionarioSelecionada = self.funcionarioSelecionado;
-    viewFuncionarios.isFiltroNome = true;
-    
-    
+    TableViewControllerOrgao *tableViewOrgaos = segue.destinationViewController;
+    tableViewOrgaos.orgaos = self.setorSelecionada.orgaos;
 }
 
 -(void)searchBar:(UISearchBar*)searchBar textDidChange:(NSString*)text{
@@ -157,17 +151,31 @@
         isFiltered = true;
         filteredTableData = [[NSMutableArray alloc] init];
         
-        for (Funcionario* func in funcionarios)
+        for (Setor* setor in setores)
         {
-            NSRange nameRange = [func.nome rangeOfString:text options:NSCaseInsensitiveSearch];
+            NSRange nameRange = [setor.nome rangeOfString:text options:NSCaseInsensitiveSearch];
             if(nameRange.location != NSNotFound)
             {
-                [filteredTableData addObject:func];
+                [filteredTableData addObject:setor];
             }
         }
     }
     
-    [self.filterNameTableView reloadData];
+    [self.setorTableView reloadData];
+}
+
+-(NSMutableArray*)validarPoder{
+
+    SingletonPoder *poderSingleton = [SingletonPoder sharedManager];
+
+    for (Poder* poder in poderSingleton.mySNRArray){
+        if([self.navigationItem.title rangeOfString:poder.nome].location != NSNotFound){
+            return poder.setores;
+        }
+    }
+
+return NULL;
+
 }
 
 @end

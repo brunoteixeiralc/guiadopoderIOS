@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "Area.h"
+#import "Orgao.h"
 
 @protocol CustomerDelegate <NSObject>
 
@@ -17,6 +17,11 @@
 
 @interface TableViewController : UITableViewController
 
+@property(nonatomic,retain) IBOutlet UIImageView *sobre;
+@property(nonatomic,retain) IBOutlet UIView *viewExecutivo;
+@property(nonatomic,retain) IBOutlet UIView *viewLegislativo;
+@property(nonatomic,retain) IBOutlet UIView *viewJudiciario;
+@property(nonatomic,retain) IBOutlet UIView *viwEstadual;
 
 @property (nonatomic,retain) id<CustomerDelegate> delegate;
 

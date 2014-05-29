@@ -7,11 +7,13 @@
 //
 
 #import "TableViewControllerCargo.h"
-#import "TableViewControllerArea.h"
+#import "TableViewControllerOrgao.h"
+#import "TableViewControllerFuncionarios.h"
 #import "SWRevealViewController.h"
 #import "CustomCell.h"
 #import "Cargo.h"
 #import "ViewControllerFuncionario.h"
+#import "TableViewControllerOrgao.h"
 
 @interface TableViewControllerCargo ()
 
@@ -21,7 +23,7 @@
 
 @implementation TableViewControllerCargo
 
-@synthesize cargos,cargoTableView,site,telefone,endereco,areaSelecionada,searchBar,isFiltered,filteredTableData;
+@synthesize cargos,cargoTableView,site,telefone,endereco,orgaoSelecionada,searchBar,isFiltered,filteredTableData;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -40,9 +42,6 @@
     cargoTableView.dataSource = self;
     searchBar.delegate = (id)self;
     
-    UIDevice *device = [UIDevice currentDevice];
-    if ([[device model] isEqualToString:@"iPhone"] ) {
-    
     UIBarButtonItem *mainMenuButton = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"menu.png"] style:UIBarButtonItemStyleBordered target:self.revealViewController action:@selector(revealToggle:)];
     self.navigationItem.leftBarButtonItem = mainMenuButton;
     self.navigationItem.leftBarButtonItem.tintColor = [UIColor colorWithRed:41.0/255.0 green:128.0/255.0 blue:185.0/255.0 alpha:1];
@@ -55,10 +54,9 @@
         // Set the gesture
         [self.view addGestureRecognizer:self.revealViewController.panGestureRecognizer];
     
-    }
-    self.site.text = areaSelecionada.endWeb;
-    self.telefone.text = areaSelecionada.telefone;
-    self.endereco.text = areaSelecionada.endereco;
+    self.site.text = orgaoSelecionada.endWeb.length == 0 ? @"-" : orgaoSelecionada.endWeb;
+    self.telefone.text = orgaoSelecionada.telefone;
+    self.endereco.text = orgaoSelecionada.endereco;
     
     UITapGestureRecognizer* callGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(call)];
     [self.telefone setUserInteractionEnabled:YES];
@@ -113,26 +111,26 @@
     else
         cargo = [cargos objectAtIndex:linha];
     
-    cell.nome.text = cargo.cargo;
+    cell.nome.text = cargo.nome;
     
-    if([self.areaSelecionada.poder isEqual: @"Poder Executivo"]){
+    if([self.orgaoSelecionada.poder isEqual: @"Executivo"]){
         
         cell.lineColor.backgroundColor = [UIColor colorWithRed:241.0/255.0 green:196.0/255.0 blue:15.0/255.0 alpha:1];
         
-    }else if([self.areaSelecionada.poder isEqual: @"Poder Estadual"]){
+    }else if([self.orgaoSelecionada.poder isEqual: @"Estadual"]){
         
         cell.lineColor.backgroundColor = [UIColor colorWithRed:52.0/255.0 green:152.0/255.0 blue:219.0/255.0 alpha:1];
         
-    }else if([self.areaSelecionada.poder isEqual: @"Poder Judiciário"]){
+    }else if([self.orgaoSelecionada.poder isEqual: @"Legislativo"]){
         
-        cell.lineColor.backgroundColor = [UIColor colorWithRed:192.0/255.0 green:57.0/255.0 blue:43.0/255.0 alpha:1];
+        cell.lineColor.backgroundColor = [UIColor colorWithRed:22.0/255.0 green:160.0/255.0 blue:133.0/255.0 alpha:1];
         
     }else{
         
-        cell.lineColor.backgroundColor = [UIColor colorWithRed:22.0/255.0 green:160.0/255.0 blue:133.0/255.0 alpha:1];
+        cell.lineColor.backgroundColor = [UIColor colorWithRed:192.0/255.0 green:57.0/255.0 blue:43.0/255.0 alpha:1];
     }
     
-    cargo.poder = self.areaSelecionada.poder;
+    cargo.poder = self.orgaoSelecionada.poder;
     
     return cell;
     
@@ -145,7 +143,7 @@
     
     self.cargoSelecionado = [cargos objectAtIndex:linha];
     
-    [self performSegueWithIdentifier:@"segueToFuncionario" sender:self];
+    [self performSegueWithIdentifier:@"segueToFuncionarioList" sender:self];
     
 }
 
@@ -156,27 +154,18 @@
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
-    if([segue.identifier isEqual:@"segueToFuncionario"]){
+    if([segue.identifier isEqual:@"segueToFuncionarioList"]){
         
         UINavigationController *destViewController = (UINavigationController*)segue.destinationViewController;
-        destViewController.title = self.cargoSelecionado.cargo;
+        destViewController.title = self.cargoSelecionado.nome;
         
-        ViewControllerFuncionario *viewFuncionarios = segue.destinationViewController;
-        viewFuncionarios.funcionarios = self.cargoSelecionado.funcionarios;
-        viewFuncionarios.poder = self.cargoSelecionado.poder;
-        viewFuncionarios.areaSelecionada = self.areaSelecionada;
-        viewFuncionarios.isFiltroNome = false;
-        
-    }else{
-        
-        UINavigationController *destViewControllerBack = (UINavigationController*)segue.destinationViewController;
-        destViewControllerBack.title = self.areaSelecionada.poder;
+        TableViewControllerFuncionarios *tableViewControllerFuncionarios = segue.destinationViewController;
+        tableViewControllerFuncionarios.funcionarios = self.cargoSelecionado.funcionarios;
+        tableViewControllerFuncionarios.cargoNome = self.cargoSelecionado.nome;
         
     }
    
-    
 
-    
 }
 
 -(void)searchBar:(UISearchBar*)searchBar textDidChange:(NSString*)text{
@@ -192,7 +181,7 @@
         
         for (Cargo* cargo in cargos)
         {
-            NSRange nameRange = [cargo.cargo rangeOfString:text options:NSCaseInsensitiveSearch];
+            NSRange nameRange = [cargo.nome rangeOfString:text options:NSCaseInsensitiveSearch];
             if(nameRange.location != NSNotFound)
             {
                 [filteredTableData addObject:cargo];
@@ -205,7 +194,8 @@
 
 - (IBAction)Back
 {
-   [self performSegueWithIdentifier:@"backToArea" sender:self];
+    [self.navigationController popViewControllerAnimated:YES];
+
 }
 
 

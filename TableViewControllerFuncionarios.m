@@ -1,28 +1,27 @@
 //
-//  TableViewControllerFilterName.m
+//  TableViewFuncionarios.m
 //  guiadopoder
 //
-//  Created by Bruno Corrêa on 30/04/14.
+//  Created by Bruno Corrêa on 26/05/14.
 //  Copyright (c) 2014 Bruno. All rights reserved.
 //
 
-#import "TableViewControllerFilterName.h"
-#import "PoderesService.h"
+#import "TableViewControllerFuncionarios.h"
 #import "SWRevealViewController.h"
 #import "CustomCell.h"
 #import "Funcionario.h"
 #import "ViewControllerFuncionario.h"
-#import "SingletonFuncionarios.h"
 
-@interface TableViewControllerFilterName ()
 
-@property (nonatomic,retain) Funcionario *funcionarioSelecionado;
+@interface TableViewControllerFuncionarios ()
+
+@property (nonatomic,retain) Funcionario  *funcionarioSelecionada;
 
 @end
 
-@implementation TableViewControllerFilterName
+@implementation TableViewControllerFuncionarios
 
-@synthesize funcionarios,filterNameTableView,searchBar,filteredTableData,isFiltered;
+@synthesize funcionarios,funcionarioTableView,searchBar,filteredTableData,isFiltered,cargoNome;
 
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
@@ -38,23 +37,25 @@
 {
     [super viewDidLoad];
     
-    filterNameTableView.delegate = self;
-    filterNameTableView.dataSource = self;
+    funcionarioTableView.delegate = self;
+    funcionarioTableView.dataSource = self;
     searchBar.delegate = (id)self;
     
-     SingletonFuncionarios *singletonFuncionarios = [SingletonFuncionarios sharedManager];
+    UIBarButtonItem *backButton = [[UIBarButtonItem alloc] initWithTitle:@"Voltar" style: UIBarButtonItemStyleBordered target:self action:@selector(Back)];
+    self.navigationItem.rightBarButtonItem = backButton;
     
-    self.funcionarios = [singletonFuncionarios funcionarioArray];
-
+    // Set the gesture
+    [self.view addGestureRecognizer:self.revealViewController.panGestureRecognizer];
+    
     UIBarButtonItem *mainMenuButton = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"menu.png"] style:UIBarButtonItemStyleBordered target:self.revealViewController action:@selector(revealToggle:)];
-        self.navigationItem.leftBarButtonItem = mainMenuButton;
-        self.navigationItem.leftBarButtonItem.tintColor = [UIColor colorWithRed:41.0/255.0 green:128.0/255.0 blue:185.0/255.0 alpha:1];
-        
-        self.navigationController.navigationBar.titleTextAttributes = @{NSForegroundColorAttributeName : [UIColor colorWithRed:41.0/255.0 green:128.0/255.0 blue:185.0/255.0 alpha:1]};
-        
-        // Set the gesture
-        [self.view addGestureRecognizer:self.revealViewController.panGestureRecognizer];
-  
+    self.navigationItem.leftBarButtonItem = mainMenuButton;
+    self.navigationItem.leftBarButtonItem.tintColor = [UIColor colorWithRed:41.0/255.0 green:128.0/255.0 blue:185.0/255.0 alpha:1];
+    
+    self.navigationController.navigationBar.titleTextAttributes = @{NSForegroundColorAttributeName : [UIColor colorWithRed:41.0/255.0 green:128.0/255.0 blue:185.0/255.0 alpha:1]};
+    
+    // Set the gesture
+    [self.view addGestureRecognizer:self.revealViewController.panGestureRecognizer];
+    
 }
 
 - (void)didReceiveMemoryWarning
@@ -83,14 +84,14 @@
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     
     static NSString *CellIdentifier = @"CustomCell";
-    CustomCell *cell = (CustomCell*)[self.filterNameTableView dequeueReusableCellWithIdentifier:CellIdentifier];
+    CustomCell *cell = (CustomCell*)[self.funcionarioTableView dequeueReusableCellWithIdentifier:CellIdentifier];
     if(cell == nil){
         cell = [[[NSBundle mainBundle]loadNibNamed:@"CustomCell" owner:self options:nil]objectAtIndex:0];
     }
     
     NSInteger linha = indexPath.row;
     
-    Funcionario *funcionario;
+     Funcionario *funcionario;
     
     if(isFiltered)
         funcionario = [filteredTableData objectAtIndex:linha];
@@ -124,10 +125,15 @@
     
     NSInteger linha = indexPath.row;
     
-    self.funcionarioSelecionado = [funcionarios objectAtIndex:linha];
+    self.funcionarioSelecionada = [funcionarios objectAtIndex:linha];
     
     [self performSegueWithIdentifier:@"segueToFuncionario" sender:self];
     
+}
+
+- (IBAction)Back
+{
+    [self.navigationController popViewControllerAnimated:YES];
 }
 
 
@@ -136,13 +142,16 @@
 // In a storyboard-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
-    UINavigationController *destViewController = (UINavigationController*)segue.destinationViewController;
-    destViewController.title = self.funcionarioSelecionado.nome;
-    
-    ViewControllerFuncionario *viewFuncionarios = segue.destinationViewController;
-    viewFuncionarios.funcionarioSelecionada = self.funcionarioSelecionado;
-    viewFuncionarios.isFiltroNome = true;
-    
+    if([segue.identifier isEqual:@"segueToFuncionario"]){
+        
+        UINavigationController *destViewController = (UINavigationController*)segue.destinationViewController;
+        destViewController.title = self.funcionarioSelecionada.nome;
+        
+        ViewControllerFuncionario *viewFuncionario = segue.destinationViewController;
+        viewFuncionario.funcionarioSelecionada = self.funcionarioSelecionada;
+        viewFuncionario.isFiltroNome = false;
+        
+    }
     
 }
 
@@ -157,17 +166,16 @@
         isFiltered = true;
         filteredTableData = [[NSMutableArray alloc] init];
         
-        for (Funcionario* func in funcionarios)
+        for (Funcionario* funcionario in funcionarios)
         {
-            NSRange nameRange = [func.nome rangeOfString:text options:NSCaseInsensitiveSearch];
+            NSRange nameRange = [funcionario.nome rangeOfString:text options:NSCaseInsensitiveSearch];
             if(nameRange.location != NSNotFound)
             {
-                [filteredTableData addObject:func];
+                [filteredTableData addObject:funcionario];
             }
         }
     }
     
-    [self.filterNameTableView reloadData];
+    [self.funcionarioTableView reloadData];
 }
-
 @end

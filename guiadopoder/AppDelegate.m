@@ -8,13 +8,43 @@
 
 #import "AppDelegate.h"
 #import "TableViewController.h"
-#import "TableViewControllerArea.h"
+#import "TableViewControllerOrgao.h"
+#import "PoderesService.h"
+#import "SingletonPoder.h"
+#import "SingletonFuncionarios.h"
+#import "Poder.h"
+#import "Setor.h"
+#import "Orgao.h"
+#import "Cargo.h"
+#import "Funcionario.h"
 
 @implementation AppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
- 
+    
+    self.poderes = [PoderesService getPoderes];
+    
+    SingletonPoder *singletonPoder = [SingletonPoder sharedManager];
+    singletonPoder.mySNRArray = self.poderes;
+    
+    NSMutableArray *funcionarios = [[NSMutableArray alloc]init];
+    
+    for (Poder *poder in singletonPoder.mySNRArray) {
+        for (Setor *setor in poder.setores) {
+            for (Orgao *orgao in setor.orgaos) {
+                for (Cargo *cargo in orgao.cargos) {
+                    for (Funcionario *funcionario in cargo.funcionarios) {
+                        [funcionarios addObject:funcionario];
+                    }
+                }
+            }
+        }
+    }
+    
+    SingletonFuncionarios *singletonFuncionarios = [SingletonFuncionarios sharedManager];
+    singletonFuncionarios.funcionarioArray = funcionarios;
+    
     return YES;
 }
 							

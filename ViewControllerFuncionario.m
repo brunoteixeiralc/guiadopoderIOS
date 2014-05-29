@@ -13,6 +13,7 @@
 #import "TableViewControllerFilterName.h"
 #import "AddressBook/AddressBook.h"
 #import "AddressBookUI/AddressBookUI.h"
+#import "TableViewControllerFuncionarios.h"
 
 @interface ViewControllerFuncionario ()
 
@@ -20,7 +21,7 @@
 
 @implementation ViewControllerFuncionario
 
-@synthesize nome,aniversario,telefone,fax,email,lineColor,funcionarios,areaSelecionada,isFiltroNome;
+@synthesize nome,aniversario,telefone,fax,email,lineColor,funcionarios,isFiltroNome,funcionarioSelecionada,cargoNome,telefone2,telefone3,complemento;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -43,36 +44,36 @@
     
     UIBarButtonItem *backButton = [[UIBarButtonItem alloc] initWithTitle:@"Voltar" style: UIBarButtonItemStyleBordered target:self action:@selector(Back)];
     self.navigationItem.rightBarButtonItem = backButton;
-    
-    Funcionario *func = [funcionarios objectAtIndex:0];
-    NSString *tel = [func.telefones objectAtIndex:0];
 
-    self.nome.text =func.nome;
-    self.aniversario.text = func.aniversario;
-    self.telefone.text = tel;
-    self.fax.text = func.fax;
-    self.email.text = func.email;
+    self.nome.text =funcionarioSelecionada.nome;
+    self.aniversario.text = funcionarioSelecionada.aniversario;
+    self.telefone.text = funcionarioSelecionada.telefone.length == 0 ? @"-" : funcionarioSelecionada.telefone;
+    self.fax.text = funcionarioSelecionada.fax.length == 0 ? @"-" : funcionarioSelecionada.fax;
+    self.email.text = funcionarioSelecionada.email;
+    self.telefone2.text = funcionarioSelecionada.telefone2.length == 0 ? @"-" : funcionarioSelecionada.telefone2;
+    self.telefone3.text = funcionarioSelecionada.telefone3.length == 0 ? @"-" : funcionarioSelecionada.telefone3;
+    self.complemento.text = funcionarioSelecionada.complemento.length == 0 ? @"-" : funcionarioSelecionada.complemento;
     
     UITapGestureRecognizer* callGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(call)];
     [self.telefone setUserInteractionEnabled:YES];
     [self.telefone addGestureRecognizer:callGesture];
     
-    if([self.poder isEqual: @"Poder Executivo"]){
+    if([self.funcionarioSelecionada.poder isEqual: @"Executivo"]){
         
         self.lineColor.backgroundColor = [UIColor colorWithRed:241.0/255.0 green:196.0/255.0 blue:15.0/255.0 alpha:1];
         
-    }else if([self.poder isEqual: @"Poder Estadual"]){
+    }else if([self.funcionarioSelecionada.poder isEqual: @"Estadual"]){
         
         self.lineColor.backgroundColor = [UIColor colorWithRed:52.0/255.0 green:152.0/255.0 blue:219.0/255.0 alpha:1];
         
-    }else if([self.poder isEqual: @"Poder Judiciário"]){
+    }else if([self.funcionarioSelecionada.poder isEqual: @"Legislativo"]){
         
-        self.lineColor.backgroundColor = [UIColor colorWithRed:192.0/255.0 green:57.0/255.0 blue:43.0/255.0 alpha:1];
+        self.lineColor.backgroundColor = [UIColor colorWithRed:22.0/255.0 green:160.0/255.0 blue:133.0/255.0 alpha:1];
         
     }else{
         
-        self.lineColor.backgroundColor = [UIColor colorWithRed:22.0/255.0 green:160.0/255.0 blue:133.0/255.0 alpha:1];
-    }
+        self.lineColor.backgroundColor =  [UIColor colorWithRed:192.0/255.0 green:57.0/255.0 blue:43.0/255.0 alpha:1];
+   }
 
 
     
@@ -92,13 +93,12 @@
     
     UINavigationController *destViewControllerBack = (UINavigationController*)segue.destinationViewController;
     
-    if([segue.identifier isEqual:@"backToCargo"]){
+    if([segue.identifier isEqual:@"backToFuncionarioList"]){
        
-        destViewControllerBack.title = areaSelecionada.nome;
+        destViewControllerBack.title = self.cargoNome;
        
-       TableViewControllerCargo *tableViewControllerCargo = segue.destinationViewController;
-       tableViewControllerCargo.areaSelecionada = self.areaSelecionada;
-       tableViewControllerCargo.cargos = self.areaSelecionada.cargos;
+       //TableViewControllerFuncionarios *tableViewControllerFuncionarios = segue.destinationViewController;
+
     
     }else{
         
@@ -172,10 +172,7 @@
 
 - (IBAction)Back
 {
-    if(!isFiltroNome)
-        [self performSegueWithIdentifier:@"backToCargo" sender:self];
-    else
-        [self performSegueWithIdentifier:@"backToFilter" sender:self];
+    [self.navigationController popViewControllerAnimated:YES];
 
 }
 

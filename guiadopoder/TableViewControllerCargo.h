@@ -7,7 +7,7 @@
 //
 
 #import "TableViewController.h"
-#import "Area.h"
+#import "Orgao.h"
 
 @interface TableViewControllerCargo : UIViewController<UITableViewDataSource,UITableViewDelegate>
 
@@ -21,6 +21,6 @@
 @property(nonatomic, assign) bool isFiltered;
 @property(nonatomic,nonatomic) NSMutableArray *cargos;
 
-@property(nonatomic,retain) Area *areaSelecionada;
+@property(nonatomic,retain) Orgao *orgaoSelecionada;
 
 @end

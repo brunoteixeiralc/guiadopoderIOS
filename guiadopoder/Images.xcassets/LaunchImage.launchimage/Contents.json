@@ -5,14 +5,14 @@
       "idiom" : "iphone",
       "extent" : "full-screen",
       "minimum-system-version" : "7.0",
-      "filename" : "capa_guia1.png",
+      "filename" : "capa_2014.png",
       "scale" : "2x"
     },
     {
       "extent" : "full-screen",
       "idiom" : "iphone",
       "subtype" : "retina4",
-      "filename" : "capa_guiaR4.png",
+      "filename" : "capa_2014_2.png.png",
       "minimum-system-version" : "7.0",
       "orientation" : "portrait",
       "scale" : "2x"
@@ -22,7 +22,6 @@
       "idiom" : "ipad",
       "extent" : "full-screen",
       "minimum-system-version" : "7.0",
-      "filename" : "capa_guia_IPAD.png",
       "scale" : "1x"
     },
     {
@@ -30,7 +29,6 @@
       "idiom" : "ipad",
       "extent" : "full-screen",
       "minimum-system-version" : "7.0",
-      "filename" : "capa_guia_ipad.png.png",
       "scale" : "1x"
     },
     {
@@ -38,7 +36,6 @@
       "idiom" : "ipad",
       "extent" : "full-screen",
       "minimum-system-version" : "7.0",
-      "filename" : "capa_guia_IPAD2X.png",
       "scale" : "2x"
     },
     {

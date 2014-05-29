@@ -8,7 +8,7 @@
 
 #import "TableViewController.h"
 #import "SWRevealViewController.h"
-#import "TableViewControllerArea.h"
+#import "TableViewControllerOrgao.h"
 @interface TableViewController ()
 
 
@@ -18,7 +18,7 @@
 
 @implementation TableViewController
 
-@synthesize delegate;
+@synthesize delegate,sobre,viewExecutivo,viewJudiciario,viewLegislativo,viwEstadual;
 
 - (id)initWithStyle:(UITableViewStyle)style
 {
@@ -37,8 +37,12 @@
     self.tableView.backgroundColor = [UIColor whiteColor];
     self.tableView.separatorColor = [UIColor colorWithWhite:0.15f alpha:0.2f];
   
-    _menuItems = @[@"poderes",@"executivo", @"legislativo", @"judiciario", @"estadual", @"empty" ,@"filtro"];
-
+    _menuItems = @[@"poderes",@"executivo", @"legislativo", @"judiciario", @"estadual", @"empty" ,@"filtro",@"empty1",@"empty2",@"empty3",@"empty4"];
+    
+    UITapGestureRecognizer* webSiteGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(webSite)];
+    [self.sobre setUserInteractionEnabled:YES];
+    [self.sobre addGestureRecognizer:webSiteGesture];
+    
 }
 - (void)didReceiveMemoryWarning
 {
@@ -114,6 +118,11 @@
         };
         
     }
+}
+
+
+-(void)webSite{
+    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"http://vectorrelgov.com.br/"]];
 }
 
 
