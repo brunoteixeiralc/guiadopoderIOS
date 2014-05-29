@@ -7,17 +7,37 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		151ECDE4193416250081841F /* TableViewControllerSetor.m in Sources */ = {isa = PBXBuildFile; fileRef = 151ECDE3193416250081841F /* TableViewControllerSetor.m */; };
+		151ECDE7193417AC0081841F /* Setor.m in Sources */ = {isa = PBXBuildFile; fileRef = 151ECDE6193417AC0081841F /* Setor.m */; };
+		151ECDEA193417BF0081841F /* Poder.m in Sources */ = {isa = PBXBuildFile; fileRef = 151ECDE9193417BF0081841F /* Poder.m */; };
+		151ECDED1934278B0081841F /* TableViewControllerFuncionarios.m in Sources */ = {isa = PBXBuildFile; fileRef = 151ECDEC1934278B0081841F /* TableViewControllerFuncionarios.m */; };
+		151ECE0A19342F7A0081841F /* NSObject+SBJson.m in Sources */ = {isa = PBXBuildFile; fileRef = 151ECDF019342F7A0081841F /* NSObject+SBJson.m */; };
+		151ECE0B19342F7A0081841F /* SBJsonParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 151ECDF319342F7A0081841F /* SBJsonParser.m */; };
+		151ECE0C19342F7A0081841F /* SBJsonStreamParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 151ECDF519342F7A0081841F /* SBJsonStreamParser.m */; };
+		151ECE0D19342F7A0081841F /* SBJsonStreamParserAccumulator.m in Sources */ = {isa = PBXBuildFile; fileRef = 151ECDF719342F7A0081841F /* SBJsonStreamParserAccumulator.m */; };
+		151ECE0E19342F7A0081841F /* SBJsonStreamParserAdapter.m in Sources */ = {isa = PBXBuildFile; fileRef = 151ECDF919342F7A0081841F /* SBJsonStreamParserAdapter.m */; };
+		151ECE0F19342F7A0081841F /* SBJsonStreamParserState.m in Sources */ = {isa = PBXBuildFile; fileRef = 151ECDFB19342F7A0081841F /* SBJsonStreamParserState.m */; };
+		151ECE1019342F7A0081841F /* SBJsonStreamWriter.m in Sources */ = {isa = PBXBuildFile; fileRef = 151ECDFD19342F7A0081841F /* SBJsonStreamWriter.m */; };
+		151ECE1119342F7A0081841F /* SBJsonStreamWriterAccumulator.m in Sources */ = {isa = PBXBuildFile; fileRef = 151ECDFF19342F7A0081841F /* SBJsonStreamWriterAccumulator.m */; };
+		151ECE1219342F7A0081841F /* SBJsonStreamWriterState.m in Sources */ = {isa = PBXBuildFile; fileRef = 151ECE0119342F7A0081841F /* SBJsonStreamWriterState.m */; };
+		151ECE1319342F7A0081841F /* SBJsonTokeniser.m in Sources */ = {isa = PBXBuildFile; fileRef = 151ECE0319342F7A0081841F /* SBJsonTokeniser.m */; };
+		151ECE1419342F7A0081841F /* SBJsonUTF8Stream.m in Sources */ = {isa = PBXBuildFile; fileRef = 151ECE0519342F7A0081841F /* SBJsonUTF8Stream.m */; };
+		151ECE1519342F7A0081841F /* SBJsonWriter.m in Sources */ = {isa = PBXBuildFile; fileRef = 151ECE0719342F7A0081841F /* SBJsonWriter.m */; };
+		151ECE1619342F7A0081841F /* SMXMLDocument.m in Sources */ = {isa = PBXBuildFile; fileRef = 151ECE0919342F7A0081841F /* SMXMLDocument.m */; };
+		151ECE1D19342FB60081841F /* HttpHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 151ECE1919342FB60081841F /* HttpHelper.m */; };
+		151ECE1E19342FB60081841F /* TransacaoUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 151ECE1C19342FB60081841F /* TransacaoUtil.m */; };
+		151ECE2119342FF40081841F /* PoderesService.m in Sources */ = {isa = PBXBuildFile; fileRef = 151ECE2019342FF40081841F /* PoderesService.m */; };
+		1545CFD319364F1F00C9F0AB /* SingletonFuncionarios.m in Sources */ = {isa = PBXBuildFile; fileRef = 1545CFD219364F1F00C9F0AB /* SingletonFuncionarios.m */; };
 		158B92BE1906D35F006FF392 /* SWRevealViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 158B92BD1906D35F006FF392 /* SWRevealViewController.m */; };
 		158B92C11906DFC9006FF392 /* menu.png in Resources */ = {isa = PBXBuildFile; fileRef = 158B92BF1906DFC9006FF392 /* menu.png */; };
 		158B92C21906DFC9006FF392 /* menu@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 158B92C01906DFC9006FF392 /* menu@2x.png */; };
 		158B92C61906E3B4006FF392 /* TableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 158B92C51906E3B4006FF392 /* TableViewController.m */; };
-		158B92C91906EC03006FF392 /* Area.m in Sources */ = {isa = PBXBuildFile; fileRef = 158B92C81906EC03006FF392 /* Area.m */; };
+		158B92C91906EC03006FF392 /* Orgao.m in Sources */ = {isa = PBXBuildFile; fileRef = 158B92C81906EC03006FF392 /* Orgao.m */; };
 		158B92CC1906EC17006FF392 /* Funcionario.m in Sources */ = {isa = PBXBuildFile; fileRef = 158B92CB1906EC17006FF392 /* Funcionario.m */; };
 		158B92CF1906EC23006FF392 /* Cargo.m in Sources */ = {isa = PBXBuildFile; fileRef = 158B92CE1906EC23006FF392 /* Cargo.m */; };
-		158B92D21906F1E4006FF392 /* TableViewControllerArea.m in Sources */ = {isa = PBXBuildFile; fileRef = 158B92D11906F1E4006FF392 /* TableViewControllerArea.m */; };
+		158B92D21906F1E4006FF392 /* TableViewControllerOrgao.m in Sources */ = {isa = PBXBuildFile; fileRef = 158B92D11906F1E4006FF392 /* TableViewControllerOrgao.m */; };
 		158B92D6190716BA006FF392 /* CustomCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 158B92D5190716BA006FF392 /* CustomCell.m */; };
 		158B92D81907179D006FF392 /* CustomCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 158B92D71907179D006FF392 /* CustomCell.xib */; };
-		158B92DC19071AA1006FF392 /* PoderesService.m in Sources */ = {isa = PBXBuildFile; fileRef = 158B92DB19071AA1006FF392 /* PoderesService.m */; };
 		158B92E719074020006FF392 /* alarm.png in Resources */ = {isa = PBXBuildFile; fileRef = 158B92DD19074020006FF392 /* alarm.png */; };
 		158B92E819074020006FF392 /* birthday.png in Resources */ = {isa = PBXBuildFile; fileRef = 158B92DE19074020006FF392 /* birthday.png */; };
 		158B92E919074020006FF392 /* email.png in Resources */ = {isa = PBXBuildFile; fileRef = 158B92DF19074020006FF392 /* email.png */; };
@@ -50,6 +70,9 @@
 		15AC18F91911BE010067919D /* search.png in Resources */ = {isa = PBXBuildFile; fileRef = 15AC18F81911BE010067919D /* search.png */; };
 		15AC18FF1911C1320067919D /* TableViewControllerFilterName.m in Sources */ = {isa = PBXBuildFile; fileRef = 15AC18FE1911C1320067919D /* TableViewControllerFilterName.m */; };
 		15AC19011911FBC70067919D /* add.png in Resources */ = {isa = PBXBuildFile; fileRef = 15AC19001911FBC70067919D /* add.png */; };
+		15C2FE6A192AC70700B36D1F /* logo_vector_about.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 15C2FE69192AC70700B36D1F /* logo_vector_about.jpg */; };
+		15DC5E6A1936A6610061F37E /* hall.png in Resources */ = {isa = PBXBuildFile; fileRef = 15DC5E691936A6600061F37E /* hall.png */; };
+		15FA30F2193547C200E8034D /* SingletonPoder.m in Sources */ = {isa = PBXBuildFile; fileRef = 15FA30F1193547C100E8034D /* SingletonPoder.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -63,25 +86,67 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		151ECDE2193416250081841F /* TableViewControllerSetor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TableViewControllerSetor.h; path = ../TableViewControllerSetor.h; sourceTree = "<group>"; };
+		151ECDE3193416250081841F /* TableViewControllerSetor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TableViewControllerSetor.m; path = ../TableViewControllerSetor.m; sourceTree = "<group>"; };
+		151ECDE5193417AC0081841F /* Setor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Setor.h; path = ../Setor.h; sourceTree = "<group>"; };
+		151ECDE6193417AC0081841F /* Setor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Setor.m; path = ../Setor.m; sourceTree = "<group>"; };
+		151ECDE8193417BF0081841F /* Poder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Poder.h; path = ../Poder.h; sourceTree = "<group>"; };
+		151ECDE9193417BF0081841F /* Poder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Poder.m; path = ../Poder.m; sourceTree = "<group>"; };
+		151ECDEB1934278B0081841F /* TableViewControllerFuncionarios.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TableViewControllerFuncionarios.h; path = ../TableViewControllerFuncionarios.h; sourceTree = "<group>"; };
+		151ECDEC1934278B0081841F /* TableViewControllerFuncionarios.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TableViewControllerFuncionarios.m; path = ../TableViewControllerFuncionarios.m; sourceTree = "<group>"; };
+		151ECDEF19342F7A0081841F /* NSObject+SBJson.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+SBJson.h"; sourceTree = "<group>"; };
+		151ECDF019342F7A0081841F /* NSObject+SBJson.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+SBJson.m"; sourceTree = "<group>"; };
+		151ECDF119342F7A0081841F /* SBJson.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBJson.h; sourceTree = "<group>"; };
+		151ECDF219342F7A0081841F /* SBJsonParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBJsonParser.h; sourceTree = "<group>"; };
+		151ECDF319342F7A0081841F /* SBJsonParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBJsonParser.m; sourceTree = "<group>"; };
+		151ECDF419342F7A0081841F /* SBJsonStreamParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBJsonStreamParser.h; sourceTree = "<group>"; };
+		151ECDF519342F7A0081841F /* SBJsonStreamParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBJsonStreamParser.m; sourceTree = "<group>"; };
+		151ECDF619342F7A0081841F /* SBJsonStreamParserAccumulator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBJsonStreamParserAccumulator.h; sourceTree = "<group>"; };
+		151ECDF719342F7A0081841F /* SBJsonStreamParserAccumulator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBJsonStreamParserAccumulator.m; sourceTree = "<group>"; };
+		151ECDF819342F7A0081841F /* SBJsonStreamParserAdapter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBJsonStreamParserAdapter.h; sourceTree = "<group>"; };
+		151ECDF919342F7A0081841F /* SBJsonStreamParserAdapter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBJsonStreamParserAdapter.m; sourceTree = "<group>"; };
+		151ECDFA19342F7A0081841F /* SBJsonStreamParserState.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBJsonStreamParserState.h; sourceTree = "<group>"; };
+		151ECDFB19342F7A0081841F /* SBJsonStreamParserState.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBJsonStreamParserState.m; sourceTree = "<group>"; };
+		151ECDFC19342F7A0081841F /* SBJsonStreamWriter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBJsonStreamWriter.h; sourceTree = "<group>"; };
+		151ECDFD19342F7A0081841F /* SBJsonStreamWriter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBJsonStreamWriter.m; sourceTree = "<group>"; };
+		151ECDFE19342F7A0081841F /* SBJsonStreamWriterAccumulator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBJsonStreamWriterAccumulator.h; sourceTree = "<group>"; };
+		151ECDFF19342F7A0081841F /* SBJsonStreamWriterAccumulator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBJsonStreamWriterAccumulator.m; sourceTree = "<group>"; };
+		151ECE0019342F7A0081841F /* SBJsonStreamWriterState.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBJsonStreamWriterState.h; sourceTree = "<group>"; };
+		151ECE0119342F7A0081841F /* SBJsonStreamWriterState.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBJsonStreamWriterState.m; sourceTree = "<group>"; };
+		151ECE0219342F7A0081841F /* SBJsonTokeniser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBJsonTokeniser.h; sourceTree = "<group>"; };
+		151ECE0319342F7A0081841F /* SBJsonTokeniser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBJsonTokeniser.m; sourceTree = "<group>"; };
+		151ECE0419342F7A0081841F /* SBJsonUTF8Stream.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBJsonUTF8Stream.h; sourceTree = "<group>"; };
+		151ECE0519342F7A0081841F /* SBJsonUTF8Stream.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBJsonUTF8Stream.m; sourceTree = "<group>"; };
+		151ECE0619342F7A0081841F /* SBJsonWriter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBJsonWriter.h; sourceTree = "<group>"; };
+		151ECE0719342F7A0081841F /* SBJsonWriter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBJsonWriter.m; sourceTree = "<group>"; };
+		151ECE0819342F7A0081841F /* SMXMLDocument.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SMXMLDocument.h; sourceTree = "<group>"; };
+		151ECE0919342F7A0081841F /* SMXMLDocument.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SMXMLDocument.m; sourceTree = "<group>"; };
+		151ECE1819342FB60081841F /* HttpHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HttpHelper.h; sourceTree = "<group>"; };
+		151ECE1919342FB60081841F /* HttpHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HttpHelper.m; sourceTree = "<group>"; };
+		151ECE1A19342FB60081841F /* Transacao.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Transacao.h; sourceTree = "<group>"; };
+		151ECE1B19342FB60081841F /* TransacaoUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TransacaoUtil.h; sourceTree = "<group>"; };
+		151ECE1C19342FB60081841F /* TransacaoUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TransacaoUtil.m; sourceTree = "<group>"; };
+		151ECE1F19342FF40081841F /* PoderesService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PoderesService.h; sourceTree = "<group>"; };
+		151ECE2019342FF40081841F /* PoderesService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PoderesService.m; sourceTree = "<group>"; };
+		1545CFD119364F1F00C9F0AB /* SingletonFuncionarios.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SingletonFuncionarios.h; sourceTree = "<group>"; };
+		1545CFD219364F1F00C9F0AB /* SingletonFuncionarios.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SingletonFuncionarios.m; sourceTree = "<group>"; };
 		158B92BC1906D35F006FF392 /* SWRevealViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWRevealViewController.h; sourceTree = "<group>"; };
 		158B92BD1906D35F006FF392 /* SWRevealViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWRevealViewController.m; sourceTree = "<group>"; };
 		158B92BF1906DFC9006FF392 /* menu.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = menu.png; sourceTree = "<group>"; };
 		158B92C01906DFC9006FF392 /* menu@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "menu@2x.png"; sourceTree = "<group>"; };
 		158B92C41906E3B4006FF392 /* TableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TableViewController.h; sourceTree = "<group>"; };
 		158B92C51906E3B4006FF392 /* TableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TableViewController.m; sourceTree = "<group>"; };
-		158B92C71906EC03006FF392 /* Area.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Area.h; sourceTree = "<group>"; };
-		158B92C81906EC03006FF392 /* Area.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Area.m; sourceTree = "<group>"; };
+		158B92C71906EC03006FF392 /* Orgao.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Orgao.h; sourceTree = "<group>"; };
+		158B92C81906EC03006FF392 /* Orgao.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Orgao.m; sourceTree = "<group>"; };
 		158B92CA1906EC17006FF392 /* Funcionario.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Funcionario.h; sourceTree = "<group>"; };
 		158B92CB1906EC17006FF392 /* Funcionario.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Funcionario.m; sourceTree = "<group>"; };
 		158B92CD1906EC23006FF392 /* Cargo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Cargo.h; sourceTree = "<group>"; };
 		158B92CE1906EC23006FF392 /* Cargo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Cargo.m; sourceTree = "<group>"; };
-		158B92D01906F1E4006FF392 /* TableViewControllerArea.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TableViewControllerArea.h; sourceTree = "<group>"; };
-		158B92D11906F1E4006FF392 /* TableViewControllerArea.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TableViewControllerArea.m; sourceTree = "<group>"; };
+		158B92D01906F1E4006FF392 /* TableViewControllerOrgao.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TableViewControllerOrgao.h; sourceTree = "<group>"; };
+		158B92D11906F1E4006FF392 /* TableViewControllerOrgao.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TableViewControllerOrgao.m; sourceTree = "<group>"; };
 		158B92D4190716BA006FF392 /* CustomCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomCell.h; sourceTree = "<group>"; };
 		158B92D5190716BA006FF392 /* CustomCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomCell.m; sourceTree = "<group>"; };
 		158B92D71907179D006FF392 /* CustomCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CustomCell.xib; sourceTree = "<group>"; };
-		158B92DA19071AA1006FF392 /* PoderesService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PoderesService.h; sourceTree = "<group>"; };
-		158B92DB19071AA1006FF392 /* PoderesService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PoderesService.m; sourceTree = "<group>"; };
 		158B92DD19074020006FF392 /* alarm.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = alarm.png; sourceTree = "<group>"; };
 		158B92DE19074020006FF392 /* birthday.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = birthday.png; sourceTree = "<group>"; };
 		158B92DF19074020006FF392 /* email.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = email.png; sourceTree = "<group>"; };
@@ -122,6 +187,10 @@
 		15AC18FD1911C1320067919D /* TableViewControllerFilterName.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TableViewControllerFilterName.h; sourceTree = "<group>"; };
 		15AC18FE1911C1320067919D /* TableViewControllerFilterName.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TableViewControllerFilterName.m; sourceTree = "<group>"; };
 		15AC19001911FBC70067919D /* add.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = add.png; sourceTree = "<group>"; };
+		15C2FE69192AC70700B36D1F /* logo_vector_about.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = logo_vector_about.jpg; sourceTree = "<group>"; };
+		15DC5E691936A6600061F37E /* hall.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = hall.png; sourceTree = "<group>"; };
+		15FA30F0193547C100E8034D /* SingletonPoder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SingletonPoder.h; sourceTree = "<group>"; };
+		15FA30F1193547C100E8034D /* SingletonPoder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SingletonPoder.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -149,6 +218,52 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		151ECDEE19342F440081841F /* JSON_Lib */ = {
+			isa = PBXGroup;
+			children = (
+				151ECDEF19342F7A0081841F /* NSObject+SBJson.h */,
+				151ECDF019342F7A0081841F /* NSObject+SBJson.m */,
+				151ECDF119342F7A0081841F /* SBJson.h */,
+				151ECDF219342F7A0081841F /* SBJsonParser.h */,
+				151ECDF319342F7A0081841F /* SBJsonParser.m */,
+				151ECDF419342F7A0081841F /* SBJsonStreamParser.h */,
+				151ECDF519342F7A0081841F /* SBJsonStreamParser.m */,
+				151ECDF619342F7A0081841F /* SBJsonStreamParserAccumulator.h */,
+				151ECDF719342F7A0081841F /* SBJsonStreamParserAccumulator.m */,
+				151ECDF819342F7A0081841F /* SBJsonStreamParserAdapter.h */,
+				151ECDF919342F7A0081841F /* SBJsonStreamParserAdapter.m */,
+				151ECDFA19342F7A0081841F /* SBJsonStreamParserState.h */,
+				151ECDFB19342F7A0081841F /* SBJsonStreamParserState.m */,
+				151ECDFC19342F7A0081841F /* SBJsonStreamWriter.h */,
+				151ECDFD19342F7A0081841F /* SBJsonStreamWriter.m */,
+				151ECDFE19342F7A0081841F /* SBJsonStreamWriterAccumulator.h */,
+				151ECDFF19342F7A0081841F /* SBJsonStreamWriterAccumulator.m */,
+				151ECE0019342F7A0081841F /* SBJsonStreamWriterState.h */,
+				151ECE0119342F7A0081841F /* SBJsonStreamWriterState.m */,
+				151ECE0219342F7A0081841F /* SBJsonTokeniser.h */,
+				151ECE0319342F7A0081841F /* SBJsonTokeniser.m */,
+				151ECE0419342F7A0081841F /* SBJsonUTF8Stream.h */,
+				151ECE0519342F7A0081841F /* SBJsonUTF8Stream.m */,
+				151ECE0619342F7A0081841F /* SBJsonWriter.h */,
+				151ECE0719342F7A0081841F /* SBJsonWriter.m */,
+				151ECE0819342F7A0081841F /* SMXMLDocument.h */,
+				151ECE0919342F7A0081841F /* SMXMLDocument.m */,
+			);
+			name = JSON_Lib;
+			sourceTree = "<group>";
+		};
+		151ECE1719342F8F0081841F /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				151ECE1819342FB60081841F /* HttpHelper.h */,
+				151ECE1919342FB60081841F /* HttpHelper.m */,
+				151ECE1A19342FB60081841F /* Transacao.h */,
+				151ECE1B19342FB60081841F /* TransacaoUtil.h */,
+				151ECE1C19342FB60081841F /* TransacaoUtil.m */,
+			);
+			name = Utils;
+			sourceTree = "<group>";
+		};
 		158B92BB1906D206006FF392 /* SWRevealViewController */ = {
 			isa = PBXGroup;
 			children = (
@@ -161,8 +276,12 @@
 		158B92C31906E1B4006FF392 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				158B92C71906EC03006FF392 /* Area.h */,
-				158B92C81906EC03006FF392 /* Area.m */,
+				151ECDE8193417BF0081841F /* Poder.h */,
+				151ECDE9193417BF0081841F /* Poder.m */,
+				151ECDE5193417AC0081841F /* Setor.h */,
+				151ECDE6193417AC0081841F /* Setor.m */,
+				158B92C71906EC03006FF392 /* Orgao.h */,
+				158B92C81906EC03006FF392 /* Orgao.m */,
 				158B92CA1906EC17006FF392 /* Funcionario.h */,
 				158B92CB1906EC17006FF392 /* Funcionario.m */,
 				158B92CD1906EC23006FF392 /* Cargo.h */,
@@ -184,8 +303,8 @@
 		158B92D919071A75006FF392 /* Service */ = {
 			isa = PBXGroup;
 			children = (
-				158B92DA19071AA1006FF392 /* PoderesService.h */,
-				158B92DB19071AA1006FF392 /* PoderesService.m */,
+				151ECE1F19342FF40081841F /* PoderesService.h */,
+				151ECE2019342FF40081841F /* PoderesService.m */,
 			);
 			name = Service;
 			sourceTree = "<group>";
@@ -193,6 +312,8 @@
 		158EF5F419060B12002E6F74 /* Imagens */ = {
 			isa = PBXGroup;
 			children = (
+				15DC5E691936A6600061F37E /* hall.png */,
+				15C2FE69192AC70700B36D1F /* logo_vector_about.jpg */,
 				15AC19001911FBC70067919D /* add.png */,
 				15AC18F81911BE010067919D /* search.png */,
 				158B92DD19074020006FF392 /* alarm.png */,
@@ -246,6 +367,9 @@
 		15A545571905F7D100253D7C /* guiadopoder */ = {
 			isa = PBXGroup;
 			children = (
+				15FA30F3193547C900E8034D /* Singleton */,
+				151ECE1719342F8F0081841F /* Utils */,
+				151ECDEE19342F440081841F /* JSON_Lib */,
 				158B92D919071A75006FF392 /* Service */,
 				158B92D31907168C006FF392 /* Cell */,
 				158B92C31906E1B4006FF392 /* Model */,
@@ -259,12 +383,16 @@
 				15A5456A1905F7D100253D7C /* ViewController.m */,
 				158B92C41906E3B4006FF392 /* TableViewController.h */,
 				158B92C51906E3B4006FF392 /* TableViewController.m */,
-				158B92D01906F1E4006FF392 /* TableViewControllerArea.h */,
-				158B92D11906F1E4006FF392 /* TableViewControllerArea.m */,
+				151ECDE2193416250081841F /* TableViewControllerSetor.h */,
+				151ECDE3193416250081841F /* TableViewControllerSetor.m */,
+				158B92D01906F1E4006FF392 /* TableViewControllerOrgao.h */,
+				158B92D11906F1E4006FF392 /* TableViewControllerOrgao.m */,
 				158B92F119074054006FF392 /* TableViewControllerCargo.h */,
 				158B92F219074054006FF392 /* TableViewControllerCargo.m */,
 				15AC18FD1911C1320067919D /* TableViewControllerFilterName.h */,
 				15AC18FE1911C1320067919D /* TableViewControllerFilterName.m */,
+				151ECDEB1934278B0081841F /* TableViewControllerFuncionarios.h */,
+				151ECDEC1934278B0081841F /* TableViewControllerFuncionarios.m */,
 				158B92F41907513C006FF392 /* ViewControllerFuncionario.h */,
 				158B92F51907513C006FF392 /* ViewControllerFuncionario.m */,
 				15A5456C1905F7D100253D7C /* Images.xcassets */,
@@ -300,6 +428,17 @@
 				15A5457C1905F7D100253D7C /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		15FA30F3193547C900E8034D /* Singleton */ = {
+			isa = PBXGroup;
+			children = (
+				15FA30F1193547C100E8034D /* SingletonPoder.m */,
+				15FA30F0193547C100E8034D /* SingletonPoder.h */,
+				1545CFD119364F1F00C9F0AB /* SingletonFuncionarios.h */,
+				1545CFD219364F1F00C9F0AB /* SingletonFuncionarios.m */,
+			);
+			name = Singleton;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -387,7 +526,9 @@
 				15AC19011911FBC70067919D /* add.png in Resources */,
 				158B92EE19074020006FF392 /* pin.png in Resources */,
 				158B92E819074020006FF392 /* birthday.png in Resources */,
+				15DC5E6A1936A6610061F37E /* hall.png in Resources */,
 				158B92ED19074020006FF392 /* phone.png in Resources */,
+				15C2FE6A192AC70700B36D1F /* logo_vector_about.jpg in Resources */,
 				158EF5F619060B1B002E6F74 /* vector_logo2.png in Resources */,
 				158B92C21906DFC9006FF392 /* menu@2x.png in Resources */,
 				158B92E719074020006FF392 /* alarm.png in Resources */,
@@ -419,20 +560,41 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				151ECE1219342F7A0081841F /* SBJsonStreamWriterState.m in Sources */,
+				151ECE1519342F7A0081841F /* SBJsonWriter.m in Sources */,
 				158B92CC1906EC17006FF392 /* Funcionario.m in Sources */,
-				158B92C91906EC03006FF392 /* Area.m in Sources */,
+				158B92C91906EC03006FF392 /* Orgao.m in Sources */,
 				15A5456B1905F7D100253D7C /* ViewController.m in Sources */,
-				158B92D21906F1E4006FF392 /* TableViewControllerArea.m in Sources */,
+				158B92D21906F1E4006FF392 /* TableViewControllerOrgao.m in Sources */,
+				151ECE0E19342F7A0081841F /* SBJsonStreamParserAdapter.m in Sources */,
+				151ECE1D19342FB60081841F /* HttpHelper.m in Sources */,
+				151ECDEA193417BF0081841F /* Poder.m in Sources */,
 				158B92F319074054006FF392 /* TableViewControllerCargo.m in Sources */,
+				151ECE0D19342F7A0081841F /* SBJsonStreamParserAccumulator.m in Sources */,
+				151ECE1119342F7A0081841F /* SBJsonStreamWriterAccumulator.m in Sources */,
+				151ECE1419342F7A0081841F /* SBJsonUTF8Stream.m in Sources */,
+				151ECE1019342F7A0081841F /* SBJsonStreamWriter.m in Sources */,
+				151ECE1619342F7A0081841F /* SMXMLDocument.m in Sources */,
+				15FA30F2193547C200E8034D /* SingletonPoder.m in Sources */,
 				158B92D6190716BA006FF392 /* CustomCell.m in Sources */,
 				15AC18FF1911C1320067919D /* TableViewControllerFilterName.m in Sources */,
 				15A545621905F7D100253D7C /* AppDelegate.m in Sources */,
-				158B92DC19071AA1006FF392 /* PoderesService.m in Sources */,
+				151ECE0A19342F7A0081841F /* NSObject+SBJson.m in Sources */,
+				151ECDED1934278B0081841F /* TableViewControllerFuncionarios.m in Sources */,
+				151ECE1E19342FB60081841F /* TransacaoUtil.m in Sources */,
 				15A5455E1905F7D100253D7C /* main.m in Sources */,
+				151ECE0B19342F7A0081841F /* SBJsonParser.m in Sources */,
 				158B92C61906E3B4006FF392 /* TableViewController.m in Sources */,
+				151ECE2119342FF40081841F /* PoderesService.m in Sources */,
+				151ECDE4193416250081841F /* TableViewControllerSetor.m in Sources */,
+				1545CFD319364F1F00C9F0AB /* SingletonFuncionarios.m in Sources */,
 				158B92CF1906EC23006FF392 /* Cargo.m in Sources */,
 				158B92F61907513C006FF392 /* ViewControllerFuncionario.m in Sources */,
+				151ECE1319342F7A0081841F /* SBJsonTokeniser.m in Sources */,
+				151ECE0C19342F7A0081841F /* SBJsonStreamParser.m in Sources */,
+				151ECE0F19342F7A0081841F /* SBJsonStreamParserState.m in Sources */,
 				158B92BE1906D35F006FF392 /* SWRevealViewController.m in Sources */,
+				151ECDE7193417AC0081841F /* Setor.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -573,6 +735,7 @@
 				INFOPLIST_FILE = "guiadopoder/guiadopoder-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -588,6 +751,7 @@
 				INFOPLIST_FILE = "guiadopoder/guiadopoder-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;

@@ -14,3 +14,6 @@
     #import <UIKit/UIKit.h>
     #import <Foundation/Foundation.h>
 #endif
+
+//JSON - URL_WEB_SERVICE
+#define URL_WEB_SERVICE @"http://127.0.0.1:8080/Vector/REST/poder"

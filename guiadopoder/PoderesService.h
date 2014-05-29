@@ -1,23 +1,20 @@
 //
-//  PoderesService.h
-//  guiadopoder
+//  AppService.h
+//  PortalSebraeMobile
 //
-//  Created by Bruno Corrêa on 22/04/14.
-//  Copyright (c) 2014 Bruno. All rights reserved.
+//  Created by Bruno Corrêa on 17/09/13.
+//  Copyright (c) 2013 Sebrae. All rights reserved.
 //
 
 #import <Foundation/Foundation.h>
 
-@interface PoderesService : NSObject
+@interface PoderesService : UIViewController{
+    
+}
 
-+ (NSMutableArray *) getLegislativo;
++ (NSMutableArray *) getPoderes;
 
-+ (NSMutableArray *) getExecutivo;
-
-+ (NSMutableArray *) getJudiciario;
-
-+ (NSMutableArray *) getEstadual;
-
-+ (NSMutableArray *) getFuncionarios;
+// Parser de JSON
++ (NSMutableArray *) parserJSON :(NSData *) data;
 
 @end
