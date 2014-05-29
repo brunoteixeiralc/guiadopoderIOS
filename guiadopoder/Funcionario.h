@@ -14,7 +14,10 @@
 @property(nonatomic,strong) NSString *aniversario;
 @property(nonatomic,strong) NSString *email;
 @property(nonatomic,strong) NSString *fax;
-@property(nonatomic,strong) NSMutableArray *telefones;
+@property(nonatomic,strong) NSString *telefone;
+@property(nonatomic,strong) NSString *telefone2;
+@property(nonatomic,strong) NSString *telefone3;
+@property(nonatomic,strong) NSString *complemento;
 @property(nonatomic,strong) NSString *poder;
 
 @end

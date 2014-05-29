@@ -1,5 +1,5 @@
 //
-//  Cargo.h
+//  Area.h
 //  guiadopoder
 //
 //  Created by Bruno Corrêa on 22/04/14.
@@ -8,11 +8,14 @@
 
 #import <Foundation/Foundation.h>
 
-@interface Cargo : NSObject
+@interface Orgao : NSObject
+
 
 @property(nonatomic,strong) NSString *nome;
+@property(nonatomic,strong) NSString *endereco;
+@property(nonatomic,strong) NSString *endWeb;
+@property(nonatomic,strong) NSString *telefone;
+@property(nonatomic,strong) NSMutableArray *cargos;
 @property(nonatomic,strong) NSString *poder;
-@property(nonatomic,strong) NSMutableArray *funcionarios;
-
 
 @end
