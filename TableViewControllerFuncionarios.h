@@ -16,6 +16,7 @@
 @property(nonatomic,strong) NSMutableArray *funcionarios;
 @property(nonatomic,strong) NSString *cargoNome;
 @property(strong, nonatomic) NSMutableArray* filteredTableData;
+@property(strong, nonatomic) NSArray* sortedArray;
 @property(nonatomic, assign) bool isFiltered;
 
 @end

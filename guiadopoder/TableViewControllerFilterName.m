@@ -22,7 +22,7 @@
 
 @implementation TableViewControllerFilterName
 
-@synthesize funcionarios,filterNameTableView,searchBar,filteredTableData,isFiltered;
+@synthesize funcionarios,filterNameTableView,searchBar,filteredTableData,isFiltered,sortedArray;
 
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
@@ -42,10 +42,16 @@
     filterNameTableView.dataSource = self;
     searchBar.delegate = (id)self;
     
-     SingletonFuncionarios *singletonFuncionarios = [SingletonFuncionarios sharedManager];
+    SingletonFuncionarios *singletonFuncionarios = [SingletonFuncionarios sharedManager];
     
     self.funcionarios = [singletonFuncionarios funcionarioArray];
-
+    
+    NSSortDescriptor *sortDescriptor;
+    sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"nome"
+                                                 ascending:YES];
+    NSArray *sortDescriptors = [NSArray arrayWithObject:sortDescriptor];
+    sortedArray = [funcionarios sortedArrayUsingDescriptors:sortDescriptors];
+    
     UIBarButtonItem *mainMenuButton = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"menu.png"] style:UIBarButtonItemStyleBordered target:self.revealViewController action:@selector(revealToggle:)];
         self.navigationItem.leftBarButtonItem = mainMenuButton;
         self.navigationItem.leftBarButtonItem.tintColor = [UIColor colorWithRed:41.0/255.0 green:128.0/255.0 blue:185.0/255.0 alpha:1];
@@ -74,7 +80,7 @@
     if(isFiltered)
         rowCount = filteredTableData.count;
     else
-        rowCount = funcionarios.count;
+        rowCount = sortedArray.count;
     
     return rowCount;
 }
@@ -95,7 +101,7 @@
     if(isFiltered)
         funcionario = [filteredTableData objectAtIndex:linha];
     else
-        funcionario = [funcionarios objectAtIndex:linha];
+        funcionario = [sortedArray objectAtIndex:linha];
     
     cell.nome.text = funcionario.nome;
     
@@ -124,8 +130,11 @@
     
     NSInteger linha = indexPath.row;
     
-    self.funcionarioSelecionado = [funcionarios objectAtIndex:linha];
-    
+    if(isFiltered)
+        self.funcionarioSelecionado = [filteredTableData objectAtIndex:linha];
+    else
+        self.funcionarioSelecionado = [sortedArray objectAtIndex:linha];
+        
     [self performSegueWithIdentifier:@"segueToFuncionario" sender:self];
     
 }
@@ -157,7 +166,7 @@
         isFiltered = true;
         filteredTableData = [[NSMutableArray alloc] init];
         
-        for (Funcionario* func in funcionarios)
+        for (Funcionario* func in sortedArray)
         {
             NSRange nameRange = [func.nome rangeOfString:text options:NSCaseInsensitiveSearch];
             if(nameRange.location != NSNotFound)

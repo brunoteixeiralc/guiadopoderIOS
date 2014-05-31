@@ -58,6 +58,14 @@
     [self.telefone setUserInteractionEnabled:YES];
     [self.telefone addGestureRecognizer:callGesture];
     
+    UITapGestureRecognizer* callGesture2 = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(call2)];
+    [self.telefone2 setUserInteractionEnabled:YES];
+    [self.telefone2 addGestureRecognizer:callGesture2];
+    
+    UITapGestureRecognizer* callGesture3 = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(call3)];
+    [self.telefone3 setUserInteractionEnabled:YES];
+    [self.telefone3 addGestureRecognizer:callGesture3];
+    
     if([self.funcionarioSelecionada.poder isEqual: @"Executivo"]){
         
         self.lineColor.backgroundColor = [UIColor colorWithRed:241.0/255.0 green:196.0/255.0 blue:15.0/255.0 alpha:1];
@@ -96,8 +104,6 @@
     if([segue.identifier isEqual:@"backToFuncionarioList"]){
        
         destViewControllerBack.title = self.cargoNome;
-       
-       //TableViewControllerFuncionarios *tableViewControllerFuncionarios = segue.destinationViewController;
 
     
     }else{
@@ -113,14 +119,58 @@
 -(void)call
 {
     UIDevice *device = [UIDevice currentDevice];
+    NSString *tel = self.telefone.text;
+    tel = [tel stringByReplacingOccurrencesOfString: @"(" withString: @""];
+    tel = [tel stringByReplacingOccurrencesOfString: @")" withString: @""];
+    tel= [tel stringByReplacingOccurrencesOfString: @"-" withString: @""];
+    tel = [tel stringByReplacingOccurrencesOfString: @" " withString: @""];
     if ([[device model] isEqualToString:@"iPhone"] ) {
-        NSString *phoneNumber = [@"tel://" stringByAppendingString:self.telefone.text];
+        NSString *phoneNumber = [@"tel://" stringByAppendingString:tel];
         [[UIApplication sharedApplication] openURL:[NSURL URLWithString:phoneNumber]];
     } else {
         UIAlertView *Notpermitted=[[UIAlertView alloc] initWithTitle:@"Alert" message:@"Seu aparelho não suporta telefonar" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
         [Notpermitted show];
     }
+
 }
+
+-(void)call2
+{
+    UIDevice *device = [UIDevice currentDevice];
+    NSString *tel2 = self.telefone.text;
+    tel2 = [tel2 stringByReplacingOccurrencesOfString: @"(" withString: @""];
+    tel2 = [tel2 stringByReplacingOccurrencesOfString: @")" withString: @""];
+    tel2= [tel2 stringByReplacingOccurrencesOfString: @"-" withString: @""];
+    tel2 = [tel2 stringByReplacingOccurrencesOfString: @" " withString: @""];
+    if ([[device model] isEqualToString:@"iPhone"] ) {
+        NSString *phoneNumber = [@"tel://" stringByAppendingString:tel2];
+        [[UIApplication sharedApplication] openURL:[NSURL URLWithString:phoneNumber]];
+    } else {
+        UIAlertView *Notpermitted=[[UIAlertView alloc] initWithTitle:@"Alert" message:@"Seu aparelho não suporta telefonar" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
+        [Notpermitted show];
+    }
+    
+}
+
+
+-(void)call3
+{
+    UIDevice *device = [UIDevice currentDevice];
+    NSString *tel3 = self.telefone.text;
+    tel3 = [tel3 stringByReplacingOccurrencesOfString: @"(" withString: @""];
+    tel3 = [tel3 stringByReplacingOccurrencesOfString: @")" withString: @""];
+    tel3= [tel3 stringByReplacingOccurrencesOfString: @"-" withString: @""];
+    tel3 = [tel3 stringByReplacingOccurrencesOfString: @" " withString: @""];
+    if ([[device model] isEqualToString:@"iPhone"] ) {
+        NSString *phoneNumber = [@"tel://" stringByAppendingString:tel3];
+        [[UIApplication sharedApplication] openURL:[NSURL URLWithString:phoneNumber]];
+    } else {
+        UIAlertView *Notpermitted=[[UIAlertView alloc] initWithTitle:@"Alert" message:@"Seu aparelho não suporta telefonar" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
+        [Notpermitted show];
+    }
+    
+}
+
 
 
 - (IBAction)showEmail:(id)sender {

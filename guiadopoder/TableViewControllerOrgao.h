@@ -17,6 +17,7 @@
 @property(nonatomic,retain) NSMutableArray *orgaos;
 @property(strong, nonatomic) NSMutableArray* filteredTableData;
 @property(nonatomic, assign) bool isFiltered;
+@property(nonatomic,retain) NSArray *sortedArray;
 
 
 @end

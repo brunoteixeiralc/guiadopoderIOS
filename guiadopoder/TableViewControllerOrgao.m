@@ -26,7 +26,7 @@
 
 }
 
-@synthesize orgaos,orgaoTableView,searchBar,filteredTableData,isFiltered;
+@synthesize orgaos,orgaoTableView,searchBar,filteredTableData,isFiltered,sortedArray;
 
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
@@ -45,6 +45,13 @@
     orgaoTableView.delegate = self;
     orgaoTableView.dataSource = self;
     searchBar.delegate = (id)self;
+    
+    NSSortDescriptor *sortDescriptor;
+    sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"nome"
+                                                 ascending:YES];
+    NSArray *sortDescriptors = [NSArray arrayWithObject:sortDescriptor];
+    sortedArray = [orgaos sortedArrayUsingDescriptors:sortDescriptors];
+
     
     UIBarButtonItem *backButton = [[UIBarButtonItem alloc] initWithTitle:@"Voltar" style: UIBarButtonItemStyleBordered target:self action:@selector(Back)];
     self.navigationItem.rightBarButtonItem = backButton;
@@ -80,7 +87,7 @@
     if(isFiltered)
         rowCount = filteredTableData.count;
     else
-        rowCount = orgaos.count;
+        rowCount = sortedArray.count;
     
     return rowCount;
 }
@@ -101,7 +108,7 @@
     if(isFiltered)
         orgao = [filteredTableData objectAtIndex:linha];
     else
-        orgao = [orgaos objectAtIndex:linha];
+        orgao = [sortedArray objectAtIndex:linha];
     
     cell.nome.text = orgao.nome;
     
@@ -130,7 +137,10 @@
     
     NSInteger linha = indexPath.row;
     
-    self.orgaoSelecionada = [orgaos objectAtIndex:linha];
+    if(isFiltered)
+        self.orgaoSelecionada = [filteredTableData objectAtIndex:linha];
+    else
+        self.orgaoSelecionada = [sortedArray objectAtIndex:linha];
     
     [self performSegueWithIdentifier:@"segueToCargo" sender:self];
     
@@ -171,7 +181,7 @@
         isFiltered = true;
         filteredTableData = [[NSMutableArray alloc] init];
         
-        for (Orgao* orgao in orgaos)
+        for (Orgao* orgao in sortedArray)
         {
             NSRange nameRange = [orgao.nome rangeOfString:text options:NSCaseInsensitiveSearch];
             if(nameRange.location != NSNotFound)

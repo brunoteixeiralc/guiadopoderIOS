@@ -16,4 +16,4 @@
 #endif
 
 //JSON - URL_WEB_SERVICE
-#define URL_WEB_SERVICE @"http://127.0.0.1:8080/Vector/REST/poder"
+#define URL_WEB_SERVICE @"http://ec2-54-207-106-189.sa-east-1.compute.amazonaws.com:8080/VectorTest/REST/poder"

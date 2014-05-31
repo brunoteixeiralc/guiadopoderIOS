@@ -23,7 +23,7 @@
 
 @implementation TableViewControllerCargo
 
-@synthesize cargos,cargoTableView,site,telefone,endereco,orgaoSelecionada,searchBar,isFiltered,filteredTableData;
+@synthesize cargos,cargoTableView,site,telefone,endereco,orgaoSelecionada,searchBar,isFiltered,filteredTableData,sortedArray;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -41,6 +41,12 @@
     cargoTableView.delegate = self;
     cargoTableView.dataSource = self;
     searchBar.delegate = (id)self;
+    
+    NSSortDescriptor *sortDescriptor;
+    sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"nome"
+                                                 ascending:YES];
+    NSArray *sortDescriptors = [NSArray arrayWithObject:sortDescriptor];
+    sortedArray = [cargos sortedArrayUsingDescriptors:sortDescriptors];
     
     UIBarButtonItem *mainMenuButton = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"menu.png"] style:UIBarButtonItemStyleBordered target:self.revealViewController action:@selector(revealToggle:)];
     self.navigationItem.leftBarButtonItem = mainMenuButton;
@@ -88,7 +94,7 @@
     if(isFiltered)
         rowCount = filteredTableData.count;
     else
-        rowCount = cargos.count;
+        rowCount = sortedArray.count;
 
     
     return rowCount;
@@ -109,7 +115,7 @@
     if(isFiltered)
         cargo = [filteredTableData objectAtIndex:linha];
     else
-        cargo = [cargos objectAtIndex:linha];
+        cargo = [sortedArray objectAtIndex:linha];
     
     cell.nome.text = cargo.nome;
     
@@ -141,7 +147,10 @@
     
     NSInteger linha = indexPath.row;
     
-    self.cargoSelecionado = [cargos objectAtIndex:linha];
+    if(isFiltered)
+        self.cargoSelecionado = [filteredTableData objectAtIndex:linha];
+    else
+        self.cargoSelecionado = [sortedArray objectAtIndex:linha];
     
     [self performSegueWithIdentifier:@"segueToFuncionarioList" sender:self];
     
@@ -164,7 +173,6 @@
         tableViewControllerFuncionarios.cargoNome = self.cargoSelecionado.nome;
         
     }
-   
 
 }
 
@@ -179,7 +187,7 @@
         isFiltered = true;
         filteredTableData = [[NSMutableArray alloc] init];
         
-        for (Cargo* cargo in cargos)
+        for (Cargo* cargo in sortedArray)
         {
             NSRange nameRange = [cargo.nome rangeOfString:text options:NSCaseInsensitiveSearch];
             if(nameRange.location != NSNotFound)
@@ -202,8 +210,13 @@
 -(void)call
 {
     UIDevice *device = [UIDevice currentDevice];
+    NSString *tel = self.telefone.text;
+    tel = [tel stringByReplacingOccurrencesOfString: @"(" withString: @""];
+    tel = [tel stringByReplacingOccurrencesOfString: @")" withString: @""];
+    tel= [tel stringByReplacingOccurrencesOfString: @"-" withString: @""];
+    tel = [tel stringByReplacingOccurrencesOfString: @" " withString: @""];
     if ([[device model] isEqualToString:@"iPhone"] ) {
-        NSString *phoneNumber = [@"tel://" stringByAppendingString:self.telefone.text];
+        NSString *phoneNumber = [@"tel://" stringByAppendingString:tel];
         [[UIApplication sharedApplication] openURL:[NSURL URLWithString:phoneNumber]];
     } else {
         UIAlertView *Notpermitted=[[UIAlertView alloc] initWithTitle:@"Alert" message:@"Seu aparelho não suporta telefonar" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
@@ -213,7 +226,7 @@
 
 -(void)webSite
 {
-    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:self.site.text]];
+    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:[NSString stringWithFormat: @"http://%@",self.site.text]]];
 }
 
 @end

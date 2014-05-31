@@ -22,7 +22,7 @@
 
 @implementation TableViewControllerSetor
 
-@synthesize setores,setorTableView,searchBar,filteredTableData,isFiltered;
+@synthesize setores,setorTableView,searchBar,filteredTableData,isFiltered,sortedArray;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -42,6 +42,12 @@
     searchBar.delegate = (id)self;
     
     self.setores = [self validarPoder];
+    
+    NSSortDescriptor *sortDescriptor;
+    sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"nome"
+                                                 ascending:YES];
+    NSArray *sortDescriptors = [NSArray arrayWithObject:sortDescriptor];
+    sortedArray = [setores sortedArrayUsingDescriptors:sortDescriptors];
     
     UIBarButtonItem *mainMenuButton = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"menu.png"] style:UIBarButtonItemStyleBordered target:self.revealViewController action:@selector(revealToggle:)];
     self.navigationItem.leftBarButtonItem = mainMenuButton;
@@ -71,7 +77,7 @@
     if(isFiltered)
         rowCount = filteredTableData.count;
     else
-        rowCount = setores.count;
+        rowCount = sortedArray.count;
     
     return rowCount;
 }
@@ -92,7 +98,7 @@
     if(isFiltered)
         setor = [filteredTableData objectAtIndex:linha];
     else
-        setor = [setores objectAtIndex:linha];
+        setor = [sortedArray objectAtIndex:linha];
     
     cell.nome.text = setor.nome;
     
@@ -121,7 +127,10 @@
     
     NSInteger linha = indexPath.row;
     
-    self.setorSelecionada = [setores objectAtIndex:linha];
+    if(isFiltered)
+        self.setorSelecionada = [filteredTableData objectAtIndex:linha];
+    else
+        self.setorSelecionada = [sortedArray objectAtIndex:linha];
     
     [self performSegueWithIdentifier:@"segueToOrgao" sender:self];
     
@@ -151,7 +160,7 @@
         isFiltered = true;
         filteredTableData = [[NSMutableArray alloc] init];
         
-        for (Setor* setor in setores)
+        for (Setor* setor in sortedArray)
         {
             NSRange nameRange = [setor.nome rangeOfString:text options:NSCaseInsensitiveSearch];
             if(nameRange.location != NSNotFound)
