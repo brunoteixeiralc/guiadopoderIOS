@@ -79,14 +79,17 @@
                     for (NSDictionary *funcionarioDic in [cargoDic objectForKey:@"funcionarios"]) {
                         Funcionario *funcionario = [[Funcionario alloc]init];
                         funcionario.nome = [funcionarioDic objectForKey:@"nome"];
-                        
+
                         NSString *actDate = [funcionarioDic objectForKey:@"aniversario"];
-                        NSDate *date = [NSDate dateWithTimeIntervalSince1970:([actDate doubleValue] / 1000)];
-                        NSDateFormatter *dtfrm = [[NSDateFormatter alloc] init];
-                        [dtfrm setDateFormat:@"dd/MM"];
-                        NSString *nDate = [dtfrm stringFromDate:date];
+
+                        if(![[NSString stringWithFormat:@"%@",actDate] isEqualToString:@"<null>"]){
+                            NSDate *date = [NSDate dateWithTimeIntervalSince1970:([actDate doubleValue] / 1000)];
+                            NSDateFormatter *dtfrm = [[NSDateFormatter alloc] init];
+                            [dtfrm setDateFormat:@"dd/MM"];
+                            NSString *nDate = [dtfrm stringFromDate:date];
+                            funcionario.aniversario = nDate;
+                        }
                         
-                        funcionario.aniversario = nDate;
                         funcionario.email = [funcionarioDic objectForKey:@"email"];
                         funcionario.fax = [funcionarioDic objectForKey:@"fax"];
                         funcionario.telefone = [funcionarioDic objectForKey:@"telefone1"];

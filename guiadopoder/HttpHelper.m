@@ -18,8 +18,8 @@
 	
 	NSData *data = [NSURLConnection sendSynchronousRequest:request returningResponse:&urlResponse error:&error];
 	
-//	NSString *xml = [[[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding] autorelease];
-//    NSLog(@"http sinc: %@", xml);
+	NSString *xml = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
+    NSLog(@"http sinc: %@", xml);
     
 	return data;
 }

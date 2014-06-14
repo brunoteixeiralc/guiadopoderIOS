@@ -48,7 +48,7 @@
     
     NSSortDescriptor *sortDescriptor;
     sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"nome"
-                                                 ascending:YES];
+                                                 ascending:YES selector:@selector(localizedCaseInsensitiveCompare:)];
     NSArray *sortDescriptors = [NSArray arrayWithObject:sortDescriptor];
     sortedArray = [funcionarios sortedArrayUsingDescriptors:sortDescriptors];
     

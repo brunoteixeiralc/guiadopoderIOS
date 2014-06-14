@@ -21,7 +21,7 @@
 @property(nonatomic,retain) IBOutlet UIView *viewExecutivo;
 @property(nonatomic,retain) IBOutlet UIView *viewLegislativo;
 @property(nonatomic,retain) IBOutlet UIView *viewJudiciario;
-@property(nonatomic,retain) IBOutlet UIView *viwEstadual;
+@property(nonatomic,retain) IBOutlet UIView *viewEstadual;
 
 @property (nonatomic,retain) id<CustomerDelegate> delegate;
 

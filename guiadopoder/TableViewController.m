@@ -18,7 +18,7 @@
 
 @implementation TableViewController
 
-@synthesize delegate,sobre,viewExecutivo,viewJudiciario,viewLegislativo,viwEstadual;
+@synthesize delegate,sobre,viewExecutivo,viewJudiciario,viewLegislativo,viewEstadual;
 
 - (id)initWithStyle:(UITableViewStyle)style
 {
